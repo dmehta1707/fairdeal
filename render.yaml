@@ -5,7 +5,7 @@ services:
     plan: free
     buildCommand: ""
     startCommand: python src/tradingview_alert_bot.py
-    workingDirectory: .
+    workingDirectory: src
     envVars:
       - key: BOT_TOKEN
         value: "your-telegram-bot-token"
