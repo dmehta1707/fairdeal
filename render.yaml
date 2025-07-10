@@ -4,7 +4,7 @@ services:
     env: python
     plan: free
     buildCommand: ""
-    startCommand: python tradingview_alert_bot.py
+    startCommand: python src/tradingview_alert_bot.py
     workingDirectory: .
     envVars:
       - key: BOT_TOKEN
