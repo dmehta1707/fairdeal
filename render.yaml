@@ -5,7 +5,7 @@ services:
     plan: free
     buildCommand: ""
     startCommand: "python tradingview_alert_bot.py"
-    workingDirectory: .
+  
 
 
 
