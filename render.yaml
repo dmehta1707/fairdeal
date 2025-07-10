@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: tradingviewbot
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python tradingview_alert_bot.py
+    autoDeploy: true
