@@ -3,7 +3,7 @@ services:
     name: tradingview-alert-bot
     env: python
     plan: free
-    buildCommand: ""
+    buildCommand: pip install -r requirements.txt
     startCommand: python tradingview_alert_bot.py
     envVars:
       - key: BOT_TOKEN
