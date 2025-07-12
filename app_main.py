@@ -1,17 +1,15 @@
-import sys
-import os
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+from flask import Flask, request
 
-from app_main import app
+app = Flask(__name__)
 
-def test_home_route():
-    with app.test_client() as client:
-        response = client.get('/')
-        assert response.status_code == 200
-        assert b"FairDeal Bot is Live!" in response.data
+@app.route('/')
+def home():
+    return "FairDeal Bot is Live!"
 
-def test_webhook_route():
-    with app.test_client() as client:
-        payload = {"message": "hello"}
-        response = client.post('/webhook', json=payload)
-        assert response.status_code == 200
+@app.route('/webhook', methods=['POST'])
+def webhook():
+    data = request.get_json()
+    return f"Received: {data['message']}", 200
+
+if __name__ == "_main_":
+    app.run(host="0.0.0.0",port=8000)
