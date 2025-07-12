@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: fairdeal-alert-bot
+    env: python
+    plan: free
+    buildCommand: ""
+    startCommand: python fairdeal_bot.py
+    envVars:
+      - key: BOT_TOKEN
+        value: "your-telegram-bot-token"
+      - key: CHAT_ID
+        value: "your-chat-id"
