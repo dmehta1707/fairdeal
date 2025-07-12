@@ -1,6 +1,6 @@
 from flask import Flask, request
 
-app = Flask(__name__)
+app = Flask(_name_)
 
 @app.route('/')
 def home():
@@ -11,5 +11,5 @@ def webhook():
     data = request.get_json()
     return f"Received: {data['message']}", 200
 
-if __name__ == "_main_":
+if _name_ == "_main_":
     app.run(host="0.0.0.0",port=8000)
