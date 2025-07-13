@@ -1,7 +1,7 @@
 from flask import Flask, request
 import requests
 
-app = Flask(_name_)
+app = Flask(__name__)
 
 @app.route('/')
 def home():
@@ -29,5 +29,5 @@ def webhook():
 
     return f"Received: {message}", 200
 
-if _name_ == "_main_":
-    app.run(host="0.0.0.0", port=8080)
+if __name__ == "__main__":
+    app.run(host="0.0.0.0",port=8080)
