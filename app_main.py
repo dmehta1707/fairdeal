@@ -7,6 +7,9 @@ load_dotenv()
 
 app = Flask(__name__)
 
+# Store the last signal per symbol
+last_signal = {}
+
 @app.route('/')
 def home():
     return "FairDeal Bot is Live!"
@@ -21,6 +24,14 @@ def webhook():
     side = data.get('side', 'N/A')
     timeframe = data.get('timeframe', 'N/A')
     note = data.get('note', '📢 TradingView Alert')
+
+    # Filtering logic to avoid redundant signals
+    global last_signal
+    if symbol in last_signal and last_signal[symbol] == side:
+        return f"⏹ Already in {side} for {symbol}", 200
+
+    # Update the last signal for this symbol
+    last_signal[symbol] = side
 
     # Formatted Telegram message
     message = f"""
